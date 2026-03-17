@@ -1,0 +1,9 @@
+{
+"name": "Site Beta",
+"short_name": "Beta",
+"start_url": ".",
+"display": "standalone",
+"background_color": "#ffffff",
+"description": "Sistema de gestão",
+"icons": []
+}
