@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Site Beta 5.0</title>
+
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+</head>
+
+<body>
+
+<header>
+<h2>Site Beta 5.0</h2>
+
+<button onclick="exportarPDF()">Gerar PDF</button>
+<button onclick="backup()">Backup</button>
+
+</header>
+
+<div class="layout">
+
+<aside class="menu">
+<ul>
+<li onclick="mostrar('dashboard')">Dashboard</li>
+<li onclick="mostrar('obras')">Obras</li>
+<li onclick="mostrar('materiais')">Materiais</li>
+<li onclick="mostrar('financeiro')">Financeiro</li>
+</ul>
+</aside>
+
+<main>
+
+<section id="dashboard">
+<h2>Painel</h2>
+
+<div class="cards">
+<div class="card"><h3>Saldo</h3><p id="saldo">0</p></div>
+<div class="card"><h3>Total Estoque</h3><p id="totalEstoque">0</p></div>
+</div>
+
+<canvas id="grafico"></canvas>
+
+</section>
+
+<section id="obras" class="hidden">
+<input id="nomeObra" placeholder="Obra">
+<button onclick="addObra()">Adicionar</button>
+<ul id="listaObras"></ul>
+</section>
+
+<section id="materiais" class="hidden">
+
+<input id="nomeMat" placeholder="Material">
+<input id="qtdMat" type="number" placeholder="Qtd">
+<input id="valorMat" type="number" placeholder="Valor">
+<input id="minMat" type="number" placeholder="Min">
+<input id="catMat" placeholder="Categoria">
+
+<button onclick="addMaterial()">Adicionar</button>
+
+<table>
+<thead>
+<tr>
+<th>Nome</th><th>Total</th><th>Status</th><th>Ações</th>
+</tr>
+</thead>
+<tbody id="listaMat"></tbody>
+</table>
+
+</section>
+
+<section id="financeiro" class="hidden">
+
+<input id="descFin" placeholder="Descrição">
+<input id="valorFin" type="number">
+
+<select id="tipoFin">
+<option value="entrada">Entrada</option>
+<option value="saida">Saída</option>
+</select>
+
+<select id="statusFin">
+<option value="pago">Pago</option>
+<option value="pendente">Pendente</option>
+</select>
+
+<input type="date" id="dataFin">
+
+<button onclick="addFin()">Adicionar</button>
+
+<h3>Filtro</h3>
+
+<input type="date" id="inicio">
+<input type="date" id="fim">
+
+<button onclick="filtrar()">Filtrar</button>
+
+<table>
+<thead>
+<tr>
+<th>Desc</th><th>Valor</th><th>Tipo</th><th>Data</th><th>Ações</th>
+</tr>
+</thead>
+<tbody id="listaFin"></tbody>
+
+</table>
+
+</section>
+
+</main>
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
